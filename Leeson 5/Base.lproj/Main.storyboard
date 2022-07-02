@@ -78,7 +78,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Random Number" id="wfb-PZ-Q4J">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="8Mu-HO-UMv"/>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="8Mu-HO-UMv">
+                            <connections>
+                                <segue destination="86k-Nr-7kT" kind="presentation" id="aeO-ax-hE2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="getRandomNumberButton" destination="d8Q-Uv-eOW" id="mza-ds-mMF"/>
@@ -90,6 +94,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="83.705357142857139"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="3N7-Za-czF">
+            <objects>
+                <viewController id="86k-Nr-7kT" customClass="SettingsViewController" customModule="Leeson_5" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LWd-8T-gk9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="46" translatesAutoresizingMaskIntoConstraints="NO" id="0a7-M9-YQO">
+                                <rect key="frame" x="60" y="104" width="294" height="114"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimum value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IWn-xY-MM4">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Maximum Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1b7-JR-rXH">
+                                        <rect key="frame" x="0.0" y="80" width="294" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-Qt-tI2">
+                                <rect key="frame" x="161.5" y="365" width="91" height="112"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hE-ds-koc">
+                                        <rect key="frame" x="0.0" y="0.0" width="91" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Save"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dM-I7-DQm">
+                                        <rect key="frame" x="0.0" y="64" width="91" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" systemColor="systemPinkColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonPressed" destination="86k-Nr-7kT" eventType="touchUpInside" id="rf7-LZ-WVf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wyx-Wz-7b7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0a7-M9-YQO" firstAttribute="leading" secondItem="wyx-Wz-7b7" secondAttribute="leading" constant="60" id="J6j-gJ-kWv"/>
+                            <constraint firstItem="wyx-Wz-7b7" firstAttribute="trailing" secondItem="0a7-M9-YQO" secondAttribute="trailing" constant="60" id="KhY-Qq-m7y"/>
+                            <constraint firstItem="KTg-Qt-tI2" firstAttribute="centerY" secondItem="LWd-8T-gk9" secondAttribute="centerY" id="ODQ-hx-Ixw"/>
+                            <constraint firstItem="KTg-Qt-tI2" firstAttribute="centerX" secondItem="LWd-8T-gk9" secondAttribute="centerX" id="X5o-0z-mK7"/>
+                            <constraint firstItem="0a7-M9-YQO" firstAttribute="top" secondItem="wyx-Wz-7b7" secondAttribute="top" constant="60" id="gpq-Tt-T3c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ROh-i6-L39"/>
+                    <connections>
+                        <outlet property="maximumValueTF" destination="1b7-JR-rXH" id="hrr-7y-4Y9"/>
+                        <outlet property="minimumValueTF" destination="IWn-xY-MM4" id="vES-mg-haG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iqZ-Fg-Ji9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857.9710144927537" y="83.705357142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p0D-G4-kQi">
@@ -107,12 +177,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUb-ix-PY5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-220" y="76"/>
+            <point key="canvasLocation" x="123" y="84"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
